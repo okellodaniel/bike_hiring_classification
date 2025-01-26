@@ -1,0 +1,16 @@
+{'xgboost': {'model': XGBRegressor(base_score=None, booster=None, callbacks=None,
+             colsample_bylevel=None, colsample_bynode=None,
+             colsample_bytree=None, device=None, early_stopping_rounds=None,
+             enable_categorical=False, eta=0.1, eval_metric=None,
+             feature_types=None, gamma=None, grow_policy=None,
+             importance_type=None, interaction_constraints=None, lambda=0.1,
+             learning_rate=None, max_bin=None, max_cat_threshold=None,
+             max_cat_to_onehot=None, max_delta_step=None, max_depth=8,
+             max_leaves=None, min_child_weight=1, missing=nan,
+             monotone_constraints=None, multi_strategy=None, n_estimators=500,
+             n_jobs=None, ...), 'dv': DictVectorizer(sparse=False), 'test_rmse': 148.23498670772946, 'test_r2': 0.9472607471386373
+    }, 'random_forest': {'model': RandomForestRegressor(max_depth=30), 'dv': DictVectorizer(sparse=False), 'test_rmse': 178.34980210758596, 'test_r2': 0.9236554922786216
+    }, 'decision_tree': {'model': DecisionTreeRegressor(max_depth=10, max_features='sqrt', min_samples_leaf=2), 'dv': DictVectorizer(sparse=False), 'test_rmse': 351.7726588078797, 'test_r2': 0.702999829866797
+    }, 'linear': {'model': LinearRegression(), 'dv': DictVectorizer(sparse=False), 'test_rmse': 445.93471513651275, 'test_r2': 0.5227179507065651
+    }
+}
