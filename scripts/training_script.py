@@ -1,21 +1,14 @@
 import logging
 import wget
-import json
 import pickle
 import xgboost as xgb
 import pandas as pd
 import numpy as np
-import seaborn as sns
-import matplotlib.pyplot as plt
 from os import path
 from zipfile import ZipFile
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, r2_score
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.linear_model import LinearRegression
-from sklearn.tree import DecisionTreeRegressor
 from sklearn.feature_extraction import DictVectorizer
-from itertools import product
 
 # Configure logging
 logging.basicConfig(
@@ -29,6 +22,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Constants
+MODEL_NAME = './models/bike_sharing_model.pkl'
 FILE_PATH = 'seoul+bike+sharing+demand.zip'
 DATA_PATH = f'./data/{FILE_PATH}'
 DATA_URL = f'https://archive.ics.uci.edu/static/public/560/{FILE_PATH}'
@@ -132,6 +126,7 @@ df_test = df_test.drop(columns=['rented_bike_count'])
 
 # Model Training and Evaluation Functions
 
+
 def train_model(df, y, model):
     dv = DictVectorizer(sparse=False)
     X_train = dv.fit_transform(df.to_dict(orient='records'))
@@ -150,21 +145,34 @@ def validate(df_val, y_val, dv, model):
     r2 = r2_score(y_val, y_pred)
     return rmse, r2
 
+
 params = {
     "eta": 0.1,
     "max_depth": 8,
     "min_child_weight": 1,
     "n_estimators": 500,
-    "lambda":0.1,
-    "n_jobs":-1
+    "lambda": 0.1,
+    "n_jobs": -1
 }
 
-def train_final_model():
-    
+
+def train_final_model(df_train, df_test, y_train, y_test, params):
+    model = xgb.XGBRegressor(**params)
+    dv, model = train_model(df_train, y_train, model)
+    rmse, r2 = validate(df_test, y_test, dv, model)
+    return dv, model, rmse, r2
 
 
-# Test the model
-sample = df_test.sample(1).to_dict(orient='records')
-X_sample = best_dv.transform(sample)
-y_pred_sample = best_model.predict(X_sample)
-print(f'Predicted rental count: {y_pred_sample[0]}')
+dv, model, rmse, r2 = train_final_model(
+    df_full_train, df_test, y_full_train, y_test, params)
+
+
+def export_model(dv, model, MODEL_NAME):
+    logging.info(f'Exporting model to {MODEL_NAME}')
+    return pickle.dump((model, dv), open(MODEL_NAME, 'wb'))
+
+
+export_model(dv, model, MODEL_NAME)
+
+logging.info(f'Final model RMSE: {rmse}')
+logging.info(f'Final r2 score: {r2}')

@@ -10,3 +10,31 @@
 2025-01-27 06:27:32,796 - __main__ - INFO - Evaluating 3000 parameter combinations
 2025-01-27 06:27:33,827 - __main__ - INFO - Completed 10/3000 combinations
 2025-01-27 06:27:34,794 - __main__ - INFO - Completed 20/3000 combinations
+2025-01-27 06:45:29,653 - __main__ - INFO - Starting data download and extraction
+2025-01-27 06:45:29,656 - __main__ - INFO - Extracting seoul+bike+sharing+demand.zip
+2025-01-27 06:45:29,668 - __main__ - INFO - Extraction completed
+2025-01-27 06:45:29,669 - __main__ - INFO - Loading dataset from CSV
+2025-01-27 06:45:29,687 - __main__ - INFO - Dataset loaded with 8760 rows and 14 columns
+2025-01-27 06:45:31,025 - root - INFO - Final model RMSE: 148.2349868557521
+2025-01-27 06:45:59,135 - __main__ - INFO - Starting data download and extraction
+2025-01-27 06:45:59,138 - __main__ - INFO - Extracting seoul+bike+sharing+demand.zip
+2025-01-27 06:45:59,144 - __main__ - INFO - Extraction completed
+2025-01-27 06:45:59,145 - __main__ - INFO - Loading dataset from CSV
+2025-01-27 06:45:59,164 - __main__ - INFO - Dataset loaded with 8760 rows and 14 columns
+2025-01-27 06:46:00,752 - root - INFO - Final model RMSE: 148.2349868557521
+2025-01-27 06:46:00,753 - root - INFO - Final r2 score: 0.9472607374191284
+2025-01-27 06:48:32,637 - __main__ - INFO - Starting data download and extraction
+2025-01-27 06:48:32,641 - __main__ - INFO - Extracting seoul+bike+sharing+demand.zip
+2025-01-27 06:48:32,649 - __main__ - INFO - Extraction completed
+2025-01-27 06:48:32,650 - __main__ - INFO - Loading dataset from CSV
+2025-01-27 06:48:32,667 - __main__ - INFO - Dataset loaded with 8760 rows and 14 columns
+2025-01-27 06:48:33,839 - root - INFO - Final model RMSE: 148.2349868557521
+2025-01-27 06:48:33,840 - root - INFO - Final r2 score: 0.9472607374191284
+2025-01-27 06:50:10,356 - __main__ - INFO - Starting data download and extraction
+2025-01-27 06:50:10,359 - __main__ - INFO - Extracting seoul+bike+sharing+demand.zip
+2025-01-27 06:50:10,366 - __main__ - INFO - Extraction completed
+2025-01-27 06:50:10,367 - __main__ - INFO - Loading dataset from CSV
+2025-01-27 06:50:10,388 - __main__ - INFO - Dataset loaded with 8760 rows and 14 columns
+2025-01-27 06:50:11,471 - root - INFO - Exporting model to ./models/bike_sharing_model.pkl
+2025-01-27 06:50:11,516 - root - INFO - Final model RMSE: 148.2349868557521
+2025-01-27 06:50:11,516 - root - INFO - Final r2 score: 0.9472607374191284
