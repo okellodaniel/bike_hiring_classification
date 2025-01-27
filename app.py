@@ -34,10 +34,14 @@ def index():
         ride = request.get_json()
         logger.info('Ride data: %s', ride)
 
-        predict = predict_rented_bike_count(ride)
+        predict = predict_rented_bike_count(ride)[0].round(0)
         logger.info('Predicted count: %s', predict)
 
-        return jsonify({'predicted_count': predict})
+        response = {
+            'predicted_count': float(predict)
+        }
+
+        return jsonify(response)
 
 
 def predict_rented_bike_count(ride):
