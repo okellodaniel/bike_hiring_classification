@@ -102,7 +102,7 @@ To set up the project locally, follow these steps:
 ## Testing with Curl
 To test the API using `curl`, use the following command with the sample payload:
 ```bash
-curl -X POST http://localhost:9696/predict -H "Content-Type: application/json" -d "{
+curl -X POST http://localhost:9696/ -H "Content-Type: application/json" -d "{
   'temperature_c': 12.2,
   'humidity': 14,
   'wind_speed_ms': 1.6,
