@@ -1,0 +1,12 @@
+2025-01-27 06:21:42,481 - __main__ - INFO - Starting data download and extraction
+2025-01-27 06:21:42,482 - __main__ - INFO - Downloading dataset from https://archive.ics.uci.edu/static/public/560//data/seoul+bike+sharing+demand.zip
+2025-01-27 06:26:23,727 - __main__ - INFO - Starting data download and extraction
+2025-01-27 06:27:32,683 - __main__ - INFO - Starting data download and extraction
+2025-01-27 06:27:32,708 - __main__ - INFO - Extracting seoul+bike+sharing+demand.zip
+2025-01-27 06:27:32,717 - __main__ - INFO - Extraction completed
+2025-01-27 06:27:32,718 - __main__ - INFO - Loading dataset from CSV
+2025-01-27 06:27:32,742 - __main__ - INFO - Dataset loaded with 8760 rows and 14 columns
+2025-01-27 06:27:32,793 - __main__ - INFO - Starting hyperparameter tuning for xgboost
+2025-01-27 06:27:32,796 - __main__ - INFO - Evaluating 3000 parameter combinations
+2025-01-27 06:27:33,827 - __main__ - INFO - Completed 10/3000 combinations
+2025-01-27 06:27:34,794 - __main__ - INFO - Completed 20/3000 combinations
