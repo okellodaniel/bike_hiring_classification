@@ -22,9 +22,9 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Constants
-MODEL_NAME = './models/bike_sharing_model.pkl'
+MODEL_NAME = '../models/bike_sharing_model.pkl'
 FILE_PATH = 'seoul+bike+sharing+demand.zip'
-DATA_PATH = f'./data/{FILE_PATH}'
+DATA_PATH = f'../data/{FILE_PATH}'
 DATA_URL = f'https://archive.ics.uci.edu/static/public/560/{FILE_PATH}'
 
 # Download and extract data

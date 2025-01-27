@@ -38,3 +38,17 @@
 2025-01-27 06:50:11,471 - root - INFO - Exporting model to ./models/bike_sharing_model.pkl
 2025-01-27 06:50:11,516 - root - INFO - Final model RMSE: 148.2349868557521
 2025-01-27 06:50:11,516 - root - INFO - Final r2 score: 0.9472607374191284
+2025-01-27 19:46:34,116 - __main__ - INFO - Loading model from D:\Machine Learning\seoul_bike_sharing_demand\models/bike_sharing_model.pkl
+2025-01-27 19:46:34,119 - __main__ - INFO - Starting app
+2025-01-27 19:46:34,176 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:9696
+ * Running on http://192.168.100.2:9696
+2025-01-27 19:46:34,177 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-01-27 19:46:34,213 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-01-27 19:46:34,830 - __main__ - INFO - Loading model from D:\Machine Learning\seoul_bike_sharing_demand\models/bike_sharing_model.pkl
+2025-01-27 19:46:34,833 - __main__ - INFO - Starting app
+2025-01-27 19:46:34,854 - werkzeug - WARNING -  * Debugger is active!
+2025-01-27 19:46:34,861 - werkzeug - INFO -  * Debugger PIN: 940-935-887
+2025-01-27 19:46:45,681 - werkzeug - INFO - 127.0.0.1 - - [27/Jan/2025 19:46:45] "[31m[1mGET / HTTP/1.1[0m" 405 -
+2025-01-27 19:46:47,046 - werkzeug - INFO - 127.0.0.1 - - [27/Jan/2025 19:46:47] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
