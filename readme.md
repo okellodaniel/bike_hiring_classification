@@ -45,7 +45,7 @@ The primary objective of this project is to develop a machine learning model tha
 
 ### Model Selection and Parameter Tuning:
 - Experiment with various machine learning algorithms such as Linear Regression, Decision Trees, Random Forest, and XGBoost.
--  Evaluate the performance of each model using metrics like Mean Squared Error (MSE), and R-squared, while fine tuning hyperparameters to come up with the best outcome.
+- Evaluate the performance of each model using metrics like Mean Squared Error (MSE), and R-squared, while fine tuning hyperparameters to come up with the best outcome.
 
 ### Model Training and Evaluation:
 - Split the dataset into training and testing sets.
@@ -56,3 +56,17 @@ The primary objective of this project is to develop a machine learning model tha
 Deploy the trained model as a web service or API.
 
 Integrate the model with the bike sharing system to provide real-time predictions.
+
+## Installation
+To set up the project locally, follow these steps:
+1. Clone the repository: `git clone git@github.com:okellodaniel/bike_share_regression.git`
+2. Navigate to the project directory: `cd bike_share_regression`
+3. Install the required dependencies: `pipenv install && pipenv shell`
+
+## Usage
+To use the model for predictions:
+1. Run the application: `python app.py`
+2. Access the web service at `http://localhost:9696` to get predictions.
+
+## Results
+The model achieved an R-squared value of 0.94, indicating a strong correlation between the predicted and actual bike demand. This high level of accuracy will help in optimizing the distribution of bikes and improving user satisfaction.
