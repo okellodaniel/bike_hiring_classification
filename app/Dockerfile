@@ -13,8 +13,8 @@ RUN pip install pipenv && pipenv lock && pipenv install --system --deploy
 
 COPY . .
 
-EXPOSE 9696
+EXPOSE 5000
 
 LABEL authors="Daniel"
 
-ENTRYPOINT ["python", "app.py"]
+CMD ["flask","run","--host=0.0.0.0"]
