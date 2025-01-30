@@ -30,6 +30,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres123@local
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
+
 # logger.info(db.ping(reconnect=True))
 logger.info('Database connected')
 
@@ -93,10 +94,12 @@ class BikeShare(db.Model):
         return f'<BikeShare {self.id}>'
 
 
-if __name__ == "__main__":
+def create_database():
     with app.app_context():
-        """
-        Create DB tables
-        """
         db.create_all()
+        print("Database and tables created successfully!")
+
+
+if __name__ == "__main__":
+    create_database()
     app.run()

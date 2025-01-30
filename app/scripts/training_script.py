@@ -46,8 +46,7 @@ logger.info(
     f'Dataset loaded with {len(df)} rows and {len(df.columns)} columns')
 
 # Initial Data Inspection
-
-
+logger.info('Starting data inspection')
 def inspect_data(df):
     print("First rows inspection:")
     print(df.head())
@@ -68,7 +67,6 @@ inspect_data(df)
 
 # Data Cleaning
 
-
 def clean_columns(df):
     df.columns = df.columns.str.lower().str.replace(' ', '_')
     df.columns = df.columns.str.replace(r'[()%°/]', '', regex=True)
@@ -85,7 +83,6 @@ df = clean_columns(df)
 
 # Feature Engineering
 
-
 def create_features(df):
     df['month'] = df['date'].dt.month
     df['day'] = df['date'].dt.day
@@ -99,7 +96,6 @@ df = create_features(df)
 
 
 # Model Training and Evaluation
-
 
 def preprocess_data(df):
     df = df.drop(columns=['hour', 'date'])
