@@ -1,6 +1,6 @@
 # Seoul Bike Sharing Demand Prediction
 
-![alt text](<Seoul Bike Sharing Demand Prediction project cover page, 4x3, height 1_2 of the width.png>)
+![alt text](</images/Seoul Bike Sharing Demand Prediction project cover page, 4x3, height 1_2 of the width.png>)
 
 ## Problem Statement
 The Seoul Bike Sharing program has been a significant success in promoting eco-friendly transportation and reducing traffic congestion. However, one of the challenges faced by the program is ensuring an adequate supply of bikes at each station throughout the day. The goal of this project is to predict the number of bikes required at each hour to minimize waiting times and improve user satisfaction.
@@ -89,12 +89,13 @@ To set up the project locally, follow these steps:
 ### Locally
 1. Ensure all dependencies are installed.
 2. Run the application: `python app.py`
-3. Access the web service at `http://localhost:9696` to get predictions.
+3. Access the web service at `http://localhost:5000` to get predictions.
+4. Access the web dashboard at `http://localhost:5000/dashboard` to visualize the data.
 
 ### Using Docker
 1. Build the Docker image: `docker build -t bike-sharing-prediction .`
-2. Run the Docker container: `docker run -p 9696:9696 bike-sharing-prediction`
-3. Access the web service at `http://localhost:9696`.
+2. Run the Docker container: `docker run -p 5000:5000 bike-sharing-prediction`
+3. Access the web service at `http://localhost:5000`.
 
 ### Testing the Deployed Version
 1. Access the deployed version at `https://bike-share-regression.fly.dev/` to get predictions.
@@ -102,7 +103,7 @@ To set up the project locally, follow these steps:
 ## Testing with Curl
 To test the API using `curl`, use the following command with the sample payload:
 ```bash
-curl -X POST http://localhost:9696/ -H "Content-Type: application/json" -d "{
+curl -X POST http://localhost:5000/ -H "Content-Type: application/json" -d "{
   'temperature_c': 12.2,
   'humidity': 14,
   'wind_speed_ms': 1.6,
