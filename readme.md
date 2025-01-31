@@ -63,6 +63,9 @@ The project follows a modular architecture with separate components for data pre
 5. Containerization with Docker:
     - Dockerfile for building the Docker image.
     - Pipfile for managing dependencies.
+  
+6. DataStore
+    - Sqlite database to facilitate viewing a list of predictions
 
 
 ## Project Structure
