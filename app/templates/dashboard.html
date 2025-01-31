@@ -43,7 +43,7 @@
                     <div class="card is-4by3">
                         <div class="card-content is-4by3">
                             <p class="title is-4">Avg. Bike Count</p>
-                            <p class="subtitle is-5">{{ functioning_days_count }}</p>
+                            <p class="subtitle is-5">{{ average_bike_count }}</p>
                         </div>
                     </div>
                 </div>
@@ -89,6 +89,7 @@
                         <td>{{ row.dayofweek }}</td>
                         <td>{{ row.hoursin }}</td>
                         <td>{{ row.hourcos }}</td>
+                        <td>{{ row.bikecount }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>

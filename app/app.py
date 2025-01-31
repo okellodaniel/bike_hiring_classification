@@ -48,21 +48,22 @@ def index():
         logger.info('Predicted count: %s', predict)
 
         bikeshare = BikeShare(
-            temperature=ride['temperature'],
-            windspeed=ride['windspeed'],
-            visibility=ride['visibility'],
-            dewpointtemperature=ride['dewpointtemperature'],
-            solarradiation=ride['solarradiation'],
-            rainfall=ride['rainfall'],
-            snowfall=ride['snowfall'],
+            temperature=ride['temperature_c'],
+            windspeed=ride['wind_speed_ms'],
+            humidity=ride['humidity'],
+            visibility=ride['visibility_10m'],
+            dewpointtemperature=ride['dew_point_temperature_c'],
+            solarradiation=ride['solar_radiation_mjm2'],
+            rainfall=ride['rainfallmm'],
+            snowfall=ride['snowfall_cm'],
             seasons=ride['seasons'],
             holiday=ride['holiday'],
-            functioningday=ride['functioningday'],
+            functioningday=ride['functioning_day'],
             month=ride['month'],
             day=ride['day'],
             dayofweek=ride['dayofweek'],
-            hoursin=ride['hoursin'],
-            hourcos=ride['hourcos'],
+            hoursin=ride['hour_sin'],
+            hourcos=ride['hour_cos'],
             bikecount=predict
         )
 
@@ -98,7 +99,7 @@ def dashboard():
                            average_windspeed=average_windspeed,
                            total_snowfall=total_snowfall,
                            #    most_common_season=most_common_season[0] if most_common_season else 'N/A',
-                           average_bike_cunt=avg_bike_count)
+                           average_bike_count=avg_bike_count)
 
 
 def predict_rented_bike_count(ride):
@@ -120,12 +121,13 @@ class BikeShare(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     temperature = db.Column(db.Float, nullable=False)
     windspeed = db.Column(db.Float, nullable=False)
+    humidity = db.Column(db.Float, nullable=False)
     visibility = db.Column(db.Integer, nullable=False)
     dewpointtemperature = db.Column(db.Float, nullable=False)
     solarradiation = db.Column(db.Float, nullable=False)
     rainfall = db.Column(db.Float, nullable=False)
     snowfall = db.Column(db.Float, nullable=False)
-    seasons = db.Column(db.Float, nullable=False)
+    seasons = db.Column(db.String(40), nullable=False)
     holiday = db.Column(db.String(20), nullable=False)
     functioningday = db.Column(db.String(4), nullable=False)
     month = db.Column(db.Integer, nullable=False)
@@ -133,7 +135,7 @@ class BikeShare(db.Model):
     dayofweek = db.Column(db.Integer, nullable=False)
     hoursin = db.Column(db.Float, nullable=False)
     hourcos = db.Column(db.Float, nullable=False)
-    bikecount = db.Column(db.Integer, nullable=False)
+    bikecount = db.Column(db.Float, nullable=False)
 
     def __repr__(self):
         return f'<BikeShare {self.id}>'
