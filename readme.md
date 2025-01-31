@@ -241,7 +241,7 @@ _You can also use the [testing notebook](./app/notebooks/testing_notebook.ipynb)
 4. Access the web service at [`http://localhost:5000`](http://localhost:5000).
 
 ### Testing the Deployed Version
-1. Access the deployed version at [`https://bike-share-regression.fly.dev/`](`https://bike-share-regression.fly.dev/`) to get predictions.
+1. Access the deployed version at [https://bike-share-regression.fly.dev/](https://bike-share-regression.fly.dev/) to get predictions.
 
 ## Testing with Curl
 To test the API using `curl`, use the following command with the sample payload:
