@@ -75,13 +75,13 @@ The project follows a modular architecture with separate components for data pre
         - app.log
         - training.log
     - models
-        - [bike_sharing_model.pkl](./app/models/bike_sharing_model.pkl): Contains the trained model, i.e the serialized model and DictVectorizer saved prior to training.
+        - [bike_sharing_model.pkl](/app/models/bike_sharing_model.pkl): Contains the trained model, i.e the serialized model and DictVectorizer saved prior to training.
     - notebooks
-        - [notebook.ipynb]('./app/notebooks/notebook.ipynb'): Contains data preparation, EDA, and model training.
-        - [testing_notebook.ipynb]('./app/notebooks/testing_notebook.ipynb') - Contains logic for testing the web service (Both locally and deployed).
+        - [notebook.ipynb]('/app/notebooks/notebook.ipynb'): Contains data preparation, EDA, and model training.
+        - [testing_notebook.ipynb]('/app/notebooks/testing_notebook.ipynb') - Contains logic for testing the web service (Both locally and deployed).
     - scripts
-        - [training_script.py]('./app/scripts/training_script.py'): Contains logic for training the model.
-    - [app.py](./app/app.py): Contains the Flask application for the web service.
+        - [training_script.py]('/app/scripts/training_script.py'): Contains logic for training the model.
+    - [app.py](/app/app.py): Contains the Flask application for the web service.
     - Configuration files
         - Pipfile
         - Pipfile.lock
