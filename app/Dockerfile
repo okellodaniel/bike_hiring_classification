@@ -17,4 +17,4 @@ EXPOSE 5000
 
 LABEL authors="Daniel"
 
-CMD ["flask","run","--host=0.0.0.0"]
+CMD ["python","app.py"]
