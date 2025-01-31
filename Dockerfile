@@ -7,11 +7,10 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 
 WORKDIR "/app"
 
-COPY Pipfile Pipfile.lock .env* ./
+COPY ./app .
+# COPY Pipfile Pipfile.lock .env* ./
 
 RUN pip install pipenv && pipenv lock && pipenv install --system --deploy
-
-COPY . .
 
 EXPOSE 5000
 
