@@ -208,7 +208,7 @@ To set up the project locally, follow these steps:
 4. Navigate to the [app] directory (cd app) and run the following command to train the model: `python scripts/training_script.py`
 5. Start the Flask application: `python app.py`
 6. Access the web service at [`http://localhost:5000`](http://localhost:5000) to get predictions.
-7. Access the web dashboard at `http://localhost:5000/dashboard` to visualize the data.
+7. Access the web dashboard at [`http://localhost:5000/dashboard`](http://localhost:5000/dashboard) to visualize the data.
 
 **Note**: Use the sample payload below to test the API using `curl`.
 ```bash
