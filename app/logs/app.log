@@ -4350,3 +4350,513 @@ LINE 2: FROM bikeshares
 FROM bikeshares]
 (Background on this error at: https://sqlalche.me/e/20/f405)
 2025-01-30 06:39:03,943 - werkzeug - INFO - 127.0.0.1 - - [30/Jan/2025 06:39:03] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-01-31 04:36:04,743 - app - INFO - Starting app
+2025-01-31 04:36:04,743 - app - INFO - Loading model from D:\Machine Learning\seoul_bike_sharing_demand\app\models/bike_sharing_model.pkl
+2025-01-31 04:36:04,845 - app - INFO - Database connected
+2025-01-31 04:36:04,880 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-01-31 04:36:04,880 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-01-31 04:36:15,780 - app - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\engine\default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedTable: relation "bikeshares" does not exist
+LINE 2: FROM bikeshares
+             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Machine Learning\seoul_bike_sharing_demand\app\app.py", line 56, in dashboard
+    result = BikeShare.query.all()
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\orm\query.py", line 2699, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\orm\query.py", line 2853, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\orm\session.py", line 2365, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\orm\session.py", line 2251, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\orm\context.py", line 305, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\engine\base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\engine\base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\engine\base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\engine\base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\engine\base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\engine\default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedTable) relation "bikeshares" does not exist
+LINE 2: FROM bikeshares
+             ^
+
+[SQL: SELECT bikeshares.id AS bikeshares_id, bikeshares.temperature AS bikeshares_temperature, bikeshares.windspeed AS bikeshares_windspeed, bikeshares.visibility AS bikeshares_visibility, bikeshares.dewpointtemperature AS bikeshares_dewpointtemperature, bikeshares.solarradiation AS bikeshares_solarradiation, bikeshares.rainfall AS bikeshares_rainfall, bikeshares.snowfall AS bikeshares_snowfall, bikeshares.seasons AS bikeshares_seasons, bikeshares.holiday AS bikeshares_holiday, bikeshares.functioningday AS bikeshares_functioningday, bikeshares.month AS bikeshares_month, bikeshares.day AS bikeshares_day, bikeshares.dayofweek AS bikeshares_dayofweek, bikeshares.hoursin AS bikeshares_hoursin, bikeshares.hourcos AS bikeshares_hourcos 
+FROM bikeshares]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-01-31 04:36:15,936 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 04:36:15] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-01-31 04:41:00,204 - app - INFO - Starting app
+2025-01-31 04:41:00,204 - app - INFO - Loading model from D:\Machine Learning\seoul_bike_sharing_demand\app\models/bike_sharing_model.pkl
+2025-01-31 04:41:00,223 - app - INFO - Database connected
+2025-01-31 04:41:40,370 - app - INFO - Starting app
+2025-01-31 04:41:40,371 - app - INFO - Loading model from D:\Machine Learning\seoul_bike_sharing_demand\app\models/bike_sharing_model.pkl
+2025-01-31 04:41:40,385 - app - INFO - Database connected
+2025-01-31 04:41:53,040 - app - INFO - Starting app
+2025-01-31 04:41:53,040 - app - INFO - Loading model from D:\Machine Learning\seoul_bike_sharing_demand\app\models/bike_sharing_model.pkl
+2025-01-31 04:41:53,054 - app - INFO - Database connected
+2025-01-31 04:41:53,072 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-01-31 04:41:53,072 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-01-31 04:42:00,006 - app - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\engine\default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedTable: relation "bikeshares" does not exist
+LINE 2: FROM bikeshares
+             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Machine Learning\seoul_bike_sharing_demand\app\app.py", line 60, in dashboard
+    result = BikeShare.query.all()
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\orm\query.py", line 2699, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\orm\query.py", line 2853, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\orm\session.py", line 2365, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\orm\session.py", line 2251, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\orm\context.py", line 305, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\engine\base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\engine\base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\engine\base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\engine\base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\engine\base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\engine\default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedTable) relation "bikeshares" does not exist
+LINE 2: FROM bikeshares
+             ^
+
+[SQL: SELECT bikeshares.id AS bikeshares_id, bikeshares.temperature AS bikeshares_temperature, bikeshares.windspeed AS bikeshares_windspeed, bikeshares.visibility AS bikeshares_visibility, bikeshares.dewpointtemperature AS bikeshares_dewpointtemperature, bikeshares.solarradiation AS bikeshares_solarradiation, bikeshares.rainfall AS bikeshares_rainfall, bikeshares.snowfall AS bikeshares_snowfall, bikeshares.seasons AS bikeshares_seasons, bikeshares.holiday AS bikeshares_holiday, bikeshares.functioningday AS bikeshares_functioningday, bikeshares.month AS bikeshares_month, bikeshares.day AS bikeshares_day, bikeshares.dayofweek AS bikeshares_dayofweek, bikeshares.hoursin AS bikeshares_hoursin, bikeshares.hourcos AS bikeshares_hourcos 
+FROM bikeshares]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-01-31 04:42:01,308 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 04:42:01] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-01-31 04:49:16,820 - app - INFO - Starting app
+2025-01-31 04:49:16,820 - app - INFO - Loading model from D:\Machine Learning\seoul_bike_sharing_demand\app\models/bike_sharing_model.pkl
+2025-01-31 04:49:16,955 - app - INFO - Database connected
+2025-01-31 04:49:55,644 - app - INFO - Starting app
+2025-01-31 04:49:55,644 - app - INFO - Loading model from D:\Machine Learning\seoul_bike_sharing_demand\app\models/bike_sharing_model.pkl
+2025-01-31 04:49:55,657 - app - INFO - Database connected
+2025-01-31 04:50:02,175 - app - INFO - Starting app
+2025-01-31 04:50:02,175 - app - INFO - Loading model from D:\Machine Learning\seoul_bike_sharing_demand\app\models/bike_sharing_model.pkl
+2025-01-31 04:50:02,202 - app - INFO - Database connected
+2025-01-31 04:50:02,223 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-01-31 04:50:02,224 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-01-31 04:50:10,903 - app - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\engine\default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: bikeshares
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Machine Learning\seoul_bike_sharing_demand\app\app.py", line 60, in dashboard
+    result = BikeShare.query.all()
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\orm\query.py", line 2699, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\orm\query.py", line 2853, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\orm\session.py", line 2365, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\orm\session.py", line 2251, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\orm\context.py", line 305, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\engine\base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\engine\base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\engine\base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\engine\base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\engine\base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\engine\default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: bikeshares
+[SQL: SELECT bikeshares.id AS bikeshares_id, bikeshares.temperature AS bikeshares_temperature, bikeshares.windspeed AS bikeshares_windspeed, bikeshares.visibility AS bikeshares_visibility, bikeshares.dewpointtemperature AS bikeshares_dewpointtemperature, bikeshares.solarradiation AS bikeshares_solarradiation, bikeshares.rainfall AS bikeshares_rainfall, bikeshares.snowfall AS bikeshares_snowfall, bikeshares.seasons AS bikeshares_seasons, bikeshares.holiday AS bikeshares_holiday, bikeshares.functioningday AS bikeshares_functioningday, bikeshares.month AS bikeshares_month, bikeshares.day AS bikeshares_day, bikeshares.dayofweek AS bikeshares_dayofweek, bikeshares.hoursin AS bikeshares_hoursin, bikeshares.hourcos AS bikeshares_hourcos 
+FROM bikeshares]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-01-31 04:50:10,925 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 04:50:10] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-01-31 04:51:12,813 - app - INFO - Starting app
+2025-01-31 04:51:12,813 - app - INFO - Loading model from D:\Machine Learning\seoul_bike_sharing_demand\app\models/bike_sharing_model.pkl
+2025-01-31 04:51:12,826 - app - INFO - Database connected
+2025-01-31 04:51:12,836 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-01-31 04:51:12,836 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-01-31 04:51:58,276 - app - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\engine\default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: bikeshares
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Machine Learning\seoul_bike_sharing_demand\app\app.py", line 60, in dashboard
+    result = BikeShare.query.all()
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\orm\query.py", line 2699, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\orm\query.py", line 2853, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\orm\session.py", line 2365, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\orm\session.py", line 2251, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\orm\context.py", line 305, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\engine\base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\engine\base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\engine\base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\engine\base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\engine\base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Daniel\.virtualenvs\app-lT0q9Xb7\Lib\site-packages\sqlalchemy\engine\default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: bikeshares
+[SQL: SELECT bikeshares.id AS bikeshares_id, bikeshares.temperature AS bikeshares_temperature, bikeshares.windspeed AS bikeshares_windspeed, bikeshares.visibility AS bikeshares_visibility, bikeshares.dewpointtemperature AS bikeshares_dewpointtemperature, bikeshares.solarradiation AS bikeshares_solarradiation, bikeshares.rainfall AS bikeshares_rainfall, bikeshares.snowfall AS bikeshares_snowfall, bikeshares.seasons AS bikeshares_seasons, bikeshares.holiday AS bikeshares_holiday, bikeshares.functioningday AS bikeshares_functioningday, bikeshares.month AS bikeshares_month, bikeshares.day AS bikeshares_day, bikeshares.dayofweek AS bikeshares_dayofweek, bikeshares.hoursin AS bikeshares_hoursin, bikeshares.hourcos AS bikeshares_hourcos 
+FROM bikeshares]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-01-31 04:51:58,285 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 04:51:58] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-01-31 04:58:39,450 - app - INFO - Starting app
+2025-01-31 04:58:39,450 - app - INFO - Loading model from D:\Machine Learning\seoul_bike_sharing_demand\app\models/bike_sharing_model.pkl
+2025-01-31 04:58:39,524 - app - INFO - Database connected
+2025-01-31 04:58:39,547 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-01-31 04:58:39,547 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-01-31 04:59:12,081 - app - INFO - Starting app
+2025-01-31 04:59:12,081 - app - INFO - Loading model from D:\Machine Learning\seoul_bike_sharing_demand\app\models/bike_sharing_model.pkl
+2025-01-31 04:59:12,093 - app - INFO - Database connected
+2025-01-31 04:59:24,424 - __main__ - INFO - Starting app
+2025-01-31 04:59:24,425 - __main__ - INFO - Loading model from D:\Machine Learning\seoul_bike_sharing_demand\app\models/bike_sharing_model.pkl
+2025-01-31 04:59:24,436 - __main__ - INFO - Database connected
+2025-01-31 04:59:24,443 - __main__ - INFO - Database and tables created successfully!
+2025-01-31 04:59:24,568 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-01-31 04:59:24,569 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-01-31 04:59:24,571 - werkzeug - INFO -  * Restarting with stat
+2025-01-31 04:59:25,135 - __main__ - INFO - Starting app
+2025-01-31 04:59:25,135 - __main__ - INFO - Loading model from D:\Machine Learning\seoul_bike_sharing_demand\app\models/bike_sharing_model.pkl
+2025-01-31 04:59:25,147 - __main__ - INFO - Database connected
+2025-01-31 04:59:25,151 - __main__ - INFO - Database and tables created successfully!
+2025-01-31 04:59:25,170 - werkzeug - WARNING -  * Debugger is active!
+2025-01-31 04:59:25,182 - werkzeug - INFO -  * Debugger PIN: 829-881-471
+2025-01-31 04:59:38,498 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 04:59:38] "GET / HTTP/1.1" 200 -
+2025-01-31 05:01:52,082 - __main__ - INFO - Starting app
+2025-01-31 05:01:52,082 - __main__ - INFO - Loading model from D:\Machine Learning\seoul_bike_sharing_demand\app\models/bike_sharing_model.pkl
+2025-01-31 05:01:52,097 - __main__ - INFO - Database connected
+2025-01-31 05:01:52,101 - __main__ - INFO - Database and tables created successfully!
+2025-01-31 05:01:52,132 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-01-31 05:01:52,132 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-01-31 05:01:52,134 - werkzeug - INFO -  * Restarting with stat
+2025-01-31 05:01:52,727 - __main__ - INFO - Starting app
+2025-01-31 05:01:52,728 - __main__ - INFO - Loading model from D:\Machine Learning\seoul_bike_sharing_demand\app\models/bike_sharing_model.pkl
+2025-01-31 05:01:52,742 - __main__ - INFO - Database connected
+2025-01-31 05:01:52,746 - __main__ - INFO - Database and tables created successfully!
+2025-01-31 05:01:52,767 - werkzeug - WARNING -  * Debugger is active!
+2025-01-31 05:01:52,771 - werkzeug - INFO -  * Debugger PIN: 829-881-471
+2025-01-31 05:10:39,766 - __main__ - INFO - Starting app
+2025-01-31 05:10:39,767 - __main__ - INFO - Loading model from D:\Machine Learning\seoul_bike_sharing_demand\app\models/bike_sharing_model.pkl
+2025-01-31 05:10:39,779 - __main__ - INFO - Database connected
+2025-01-31 05:10:39,784 - __main__ - INFO - Database and tables created successfully!
+2025-01-31 05:10:39,815 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-01-31 05:10:39,816 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-01-31 05:10:39,817 - werkzeug - INFO -  * Restarting with stat
+2025-01-31 05:10:40,373 - __main__ - INFO - Starting app
+2025-01-31 05:10:40,374 - __main__ - INFO - Loading model from D:\Machine Learning\seoul_bike_sharing_demand\app\models/bike_sharing_model.pkl
+2025-01-31 05:10:40,386 - __main__ - INFO - Database connected
+2025-01-31 05:10:40,390 - __main__ - INFO - Database and tables created successfully!
+2025-01-31 05:10:40,409 - werkzeug - WARNING -  * Debugger is active!
+2025-01-31 05:10:40,412 - werkzeug - INFO -  * Debugger PIN: 829-881-471
+2025-01-31 05:10:43,935 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 05:10:43] "GET / HTTP/1.1" 200 -
+2025-01-31 05:10:44,161 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 05:10:44] "[33mGET /js/materialize.min.js HTTP/1.1[0m" 404 -
+2025-01-31 05:12:47,399 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 05:12:47] "GET / HTTP/1.1" 200 -
+2025-01-31 05:12:47,614 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 05:12:47] "[33mGET /js/materialize.min.js HTTP/1.1[0m" 404 -
+2025-01-31 05:16:24,700 - werkzeug - INFO -  * Detected change in 'D:\\Machine Learning\\seoul_bike_sharing_demand\\app\\app.py', reloading
+2025-01-31 05:16:24,917 - werkzeug - INFO -  * Restarting with stat
+2025-01-31 05:16:25,852 - __main__ - INFO - Starting app
+2025-01-31 05:16:25,852 - __main__ - INFO - Loading model from D:\Machine Learning\seoul_bike_sharing_demand\app\models/bike_sharing_model.pkl
+2025-01-31 05:16:25,871 - __main__ - INFO - Database connected
+2025-01-31 05:26:23,304 - __main__ - INFO - Starting app
+2025-01-31 05:26:23,305 - __main__ - INFO - Loading model from D:\Machine Learning\seoul_bike_sharing_demand\app\models/bike_sharing_model.pkl
+2025-01-31 05:26:23,317 - __main__ - INFO - Database connected
+2025-01-31 05:26:56,811 - app - INFO - Starting app
+2025-01-31 05:26:56,811 - app - INFO - Loading model from D:\Machine Learning\seoul_bike_sharing_demand\app\models/bike_sharing_model.pkl
+2025-01-31 05:26:56,824 - app - INFO - Database connected
+2025-01-31 05:28:02,844 - app - INFO - Starting app
+2025-01-31 05:28:02,844 - app - INFO - Loading model from D:\Machine Learning\seoul_bike_sharing_demand\app\models/bike_sharing_model.pkl
+2025-01-31 05:28:02,866 - app - INFO - Database connected
+2025-01-31 05:29:05,128 - app - INFO - Starting app
+2025-01-31 05:29:05,128 - app - INFO - Loading model from D:\Machine Learning\seoul_bike_sharing_demand\app\models/bike_sharing_model.pkl
+2025-01-31 05:29:05,141 - app - INFO - Database connected
+2025-01-31 05:29:13,249 - __main__ - INFO - Starting app
+2025-01-31 05:29:13,250 - __main__ - INFO - Loading model from D:\Machine Learning\seoul_bike_sharing_demand\app\models/bike_sharing_model.pkl
+2025-01-31 05:29:13,264 - __main__ - INFO - Database connected
+2025-01-31 05:29:13,268 - __main__ - INFO - Database and tables created successfully!
+2025-01-31 05:29:13,309 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-01-31 05:29:13,309 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-01-31 05:29:13,312 - werkzeug - INFO -  * Restarting with stat
+2025-01-31 05:29:13,879 - __main__ - INFO - Starting app
+2025-01-31 05:29:13,879 - __main__ - INFO - Loading model from D:\Machine Learning\seoul_bike_sharing_demand\app\models/bike_sharing_model.pkl
+2025-01-31 05:29:13,891 - __main__ - INFO - Database connected
+2025-01-31 05:29:13,895 - __main__ - INFO - Database and tables created successfully!
+2025-01-31 05:29:13,915 - werkzeug - WARNING -  * Debugger is active!
+2025-01-31 05:29:13,926 - werkzeug - INFO -  * Debugger PIN: 829-881-471
+2025-01-31 05:29:41,279 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 05:29:41] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-01-31 05:29:41,449 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 05:29:41] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-01-31 05:29:41,718 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 05:29:41] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-01-31 05:29:41,869 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 05:29:41] "GET /?__debugger__=yes&cmd=resource&f=less.png HTTP/1.1" 200 -
+2025-01-31 05:29:41,869 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 05:29:41] "GET /?__debugger__=yes&cmd=resource&f=more.png HTTP/1.1" 200 -
+2025-01-31 05:29:42,100 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 05:29:42] "GET /?__debugger__=yes&cmd=resource&f=console.png&s=lkOdssbcbbQDjFQ6GmoZ HTTP/1.1" 200 -
+2025-01-31 05:29:42,883 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 05:29:42] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-01-31 05:46:31,674 - app - INFO - Starting app
+2025-01-31 05:46:31,674 - app - INFO - Loading model from D:\Machine Learning\seoul_bike_sharing_demand\app\models/bike_sharing_model.pkl
+2025-01-31 05:46:31,689 - app - INFO - Database connected
+2025-01-31 05:46:44,674 - app - INFO - Starting app
+2025-01-31 05:46:44,674 - app - INFO - Loading model from D:\Machine Learning\seoul_bike_sharing_demand\app\models/bike_sharing_model.pkl
+2025-01-31 05:46:44,690 - app - INFO - Database connected
+2025-01-31 05:47:00,634 - app - INFO - Starting app
+2025-01-31 05:47:00,635 - app - INFO - Loading model from D:\Machine Learning\seoul_bike_sharing_demand\app\models/bike_sharing_model.pkl
+2025-01-31 05:47:00,656 - app - INFO - Database connected
+2025-01-31 05:47:19,242 - __main__ - INFO - Starting app
+2025-01-31 05:47:19,242 - __main__ - INFO - Loading model from D:\Machine Learning\seoul_bike_sharing_demand\app\models/bike_sharing_model.pkl
+2025-01-31 05:47:19,256 - __main__ - INFO - Database connected
+2025-01-31 05:47:19,262 - __main__ - INFO - Database and tables created successfully!
+2025-01-31 05:47:19,445 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-01-31 05:47:19,445 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-01-31 05:47:19,448 - werkzeug - INFO -  * Restarting with stat
+2025-01-31 05:47:20,090 - __main__ - INFO - Starting app
+2025-01-31 05:47:20,091 - __main__ - INFO - Loading model from D:\Machine Learning\seoul_bike_sharing_demand\app\models/bike_sharing_model.pkl
+2025-01-31 05:47:20,105 - __main__ - INFO - Database connected
+2025-01-31 05:47:20,109 - __main__ - INFO - Database and tables created successfully!
+2025-01-31 05:47:20,130 - werkzeug - WARNING -  * Debugger is active!
+2025-01-31 05:47:20,140 - werkzeug - INFO -  * Debugger PIN: 829-881-471
+2025-01-31 05:51:37,821 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 05:51:37] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-01-31 05:51:38,385 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 05:51:38] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-01-31 05:51:39,947 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 05:51:39] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-01-31 05:51:40,507 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 05:51:40] "GET /?__debugger__=yes&cmd=resource&f=console.png&s=zsAvAUn20xrYvKW5QGVD HTTP/1.1" 200 -
+2025-01-31 05:51:41,341 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 05:51:41] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-01-31 06:00:34,842 - app - INFO - Starting app
+2025-01-31 06:00:34,843 - app - INFO - Loading model from D:\Machine Learning\seoul_bike_sharing_demand\app\models/bike_sharing_model.pkl
+2025-01-31 06:00:34,943 - app - INFO - Database connected
+2025-01-31 06:00:34,948 - flask_migrate - ERROR - Error: Directory migrations already exists and is not empty
+2025-01-31 06:01:22,176 - app - INFO - Starting app
+2025-01-31 06:01:22,176 - app - INFO - Loading model from D:\Machine Learning\seoul_bike_sharing_demand\app\models/bike_sharing_model.pkl
+2025-01-31 06:01:22,190 - app - INFO - Database connected
+2025-01-31 06:01:47,908 - app - INFO - Starting app
+2025-01-31 06:01:47,909 - app - INFO - Loading model from D:\Machine Learning\seoul_bike_sharing_demand\app\models/bike_sharing_model.pkl
+2025-01-31 06:01:47,926 - app - INFO - Database connected
+2025-01-31 06:02:05,173 - app - INFO - Starting app
+2025-01-31 06:02:05,173 - app - INFO - Loading model from D:\Machine Learning\seoul_bike_sharing_demand\app\models/bike_sharing_model.pkl
+2025-01-31 06:02:05,187 - app - INFO - Database connected
+2025-01-31 06:02:12,176 - app - INFO - Starting app
+2025-01-31 06:02:12,177 - app - INFO - Loading model from D:\Machine Learning\seoul_bike_sharing_demand\app\models/bike_sharing_model.pkl
+2025-01-31 06:02:12,191 - app - INFO - Database connected
+2025-01-31 06:02:25,075 - __main__ - INFO - Starting app
+2025-01-31 06:02:25,076 - __main__ - INFO - Loading model from D:\Machine Learning\seoul_bike_sharing_demand\app\models/bike_sharing_model.pkl
+2025-01-31 06:02:25,090 - __main__ - INFO - Database connected
+2025-01-31 06:02:25,095 - __main__ - INFO - Database and tables created successfully!
+2025-01-31 06:02:25,243 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-01-31 06:02:25,243 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-01-31 06:02:25,245 - werkzeug - INFO -  * Restarting with stat
+2025-01-31 06:02:25,858 - __main__ - INFO - Starting app
+2025-01-31 06:02:25,859 - __main__ - INFO - Loading model from D:\Machine Learning\seoul_bike_sharing_demand\app\models/bike_sharing_model.pkl
+2025-01-31 06:02:25,872 - __main__ - INFO - Database connected
+2025-01-31 06:02:25,877 - __main__ - INFO - Database and tables created successfully!
+2025-01-31 06:02:25,907 - werkzeug - WARNING -  * Debugger is active!
+2025-01-31 06:02:25,912 - werkzeug - INFO -  * Debugger PIN: 829-881-471
+2025-01-31 06:02:34,945 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 06:02:34] "GET / HTTP/1.1" 200 -
+2025-01-31 06:02:35,173 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 06:02:35] "[33mGET /js/materialize.min.js HTTP/1.1[0m" 404 -
+2025-01-31 06:07:03,464 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 06:07:03] "GET / HTTP/1.1" 200 -
+2025-01-31 06:07:03,718 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 06:07:03] "[33mGET /js/materialize.min.js HTTP/1.1[0m" 404 -
+2025-01-31 06:07:30,986 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 06:07:30] "GET / HTTP/1.1" 200 -
+2025-01-31 06:07:31,390 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 06:07:31] "[33mGET /js/materialize.min.js HTTP/1.1[0m" 404 -
+2025-01-31 06:07:53,876 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 06:07:53] "GET / HTTP/1.1" 200 -
+2025-01-31 06:07:54,291 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 06:07:54] "[33mGET /js/materialize.min.js HTTP/1.1[0m" 404 -
+2025-01-31 06:08:14,302 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 06:08:14] "GET / HTTP/1.1" 200 -
+2025-01-31 06:08:14,726 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 06:08:14] "[33mGET /js/materialize.min.js HTTP/1.1[0m" 404 -
+2025-01-31 06:10:19,489 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 06:10:19] "GET / HTTP/1.1" 200 -
+2025-01-31 06:10:19,746 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 06:10:19] "[33mGET /js/materialize.min.js HTTP/1.1[0m" 404 -
+2025-01-31 06:10:37,353 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 06:10:37] "GET / HTTP/1.1" 200 -
+2025-01-31 06:10:37,767 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 06:10:37] "[33mGET /js/materialize.min.js HTTP/1.1[0m" 404 -
+2025-01-31 06:11:17,850 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 06:11:17] "GET / HTTP/1.1" 200 -
+2025-01-31 06:11:18,327 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 06:11:18] "[33mGET /js/materialize.min.js HTTP/1.1[0m" 404 -
+2025-01-31 06:11:53,018 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 06:11:53] "GET / HTTP/1.1" 200 -
+2025-01-31 06:11:53,464 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 06:11:53] "[33mGET /js/materialize.min.js HTTP/1.1[0m" 404 -
+2025-01-31 06:14:12,568 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 06:14:12] "GET / HTTP/1.1" 200 -
+2025-01-31 06:14:12,796 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 06:14:12] "[33mGET /js/materialize.min.js HTTP/1.1[0m" 404 -
+2025-01-31 06:14:30,199 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 06:14:30] "GET / HTTP/1.1" 200 -
+2025-01-31 06:14:30,640 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 06:14:30] "[33mGET /js/materialize.min.js HTTP/1.1[0m" 404 -
+2025-01-31 06:14:50,981 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 06:14:50] "GET / HTTP/1.1" 200 -
+2025-01-31 06:14:51,383 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 06:14:51] "[33mGET /js/materialize.min.js HTTP/1.1[0m" 404 -
+2025-01-31 06:15:31,285 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 06:15:31] "GET / HTTP/1.1" 200 -
+2025-01-31 06:15:31,772 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 06:15:31] "[33mGET /js/materialize.min.js HTTP/1.1[0m" 404 -
+2025-01-31 06:15:43,755 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 06:15:43] "GET / HTTP/1.1" 200 -
+2025-01-31 06:15:44,142 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 06:15:44] "[33mGET /js/materialize.min.js HTTP/1.1[0m" 404 -
+2025-01-31 06:16:10,143 - werkzeug - INFO -  * Detected change in 'D:\\Machine Learning\\seoul_bike_sharing_demand\\app\\app.py', reloading
+2025-01-31 06:16:10,384 - werkzeug - INFO -  * Restarting with stat
+2025-01-31 06:16:11,264 - __main__ - INFO - Starting app
+2025-01-31 06:16:11,264 - __main__ - INFO - Loading model from D:\Machine Learning\seoul_bike_sharing_demand\app\models/bike_sharing_model.pkl
+2025-01-31 06:16:11,282 - __main__ - INFO - Database connected
+2025-01-31 06:16:11,290 - __main__ - INFO - Database and tables created successfully!
+2025-01-31 06:16:11,325 - werkzeug - WARNING -  * Debugger is active!
+2025-01-31 06:16:11,330 - werkzeug - INFO -  * Debugger PIN: 829-881-471
+2025-01-31 06:16:21,567 - werkzeug - INFO -  * Detected change in 'D:\\Machine Learning\\seoul_bike_sharing_demand\\app\\app.py', reloading
+2025-01-31 06:16:21,709 - werkzeug - INFO -  * Restarting with stat
+2025-01-31 06:16:22,492 - __main__ - INFO - Starting app
+2025-01-31 06:16:22,493 - __main__ - INFO - Loading model from D:\Machine Learning\seoul_bike_sharing_demand\app\models/bike_sharing_model.pkl
+2025-01-31 06:16:22,511 - __main__ - INFO - Database connected
+2025-01-31 06:16:22,517 - __main__ - INFO - Database and tables created successfully!
+2025-01-31 06:16:22,544 - werkzeug - WARNING -  * Debugger is active!
+2025-01-31 06:16:22,550 - werkzeug - INFO -  * Debugger PIN: 829-881-471
+2025-01-31 06:16:27,674 - werkzeug - INFO -  * Detected change in 'D:\\Machine Learning\\seoul_bike_sharing_demand\\app\\app.py', reloading
+2025-01-31 06:16:27,818 - werkzeug - INFO -  * Restarting with stat

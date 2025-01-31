@@ -1,25 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
     <title>Dashboard</title>
 </head>
+
 <body>
-    <h1>Data Dashboard</h1>
-    <table border="1">
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Value</th>
-        </tr>
-        {% for row in data %}
-        <tr>
-            <td>{{ row.id }}</td>
-            <td>{{ row.name }}</td>
-            <td>{{ row.value }}</td>
-        </tr>
-        {% endfor %}
-    </table>
+    <section class="section">
+        <div class="container">
+            <h1 class="title is-4">Bike Share Dashboard</h1>
+            <div class="columns">
+                <div class="column">
+                    <div class="card is-4by3">
+                        <div class="card-content is-4by3">
+                            <p class="title ">Avg. Temp</p>
+                            <p class="subtitle is-5">{{ average_temperature }} °C</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card is-4by3">
+                        <div class="card-content is-4by3">
+                            <p class="title is-4">Avg. Wind Speed</p>
+                            <p class="subtitle is-5">{{ average_windspeed }} m/s</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card is-4by3">
+                        <div class="card-content is-4by3">
+                            <p class="title is-4">Total Snowfall</p>
+                            <p class="subtitle is-5">{{ total_snowfall }} mm</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card is-4by3">
+                        <div class="card-content is-4by3">
+                            <p class="title is-4">Avg. Bike Count</p>
+                            <p class="subtitle is-5">{{ functioning_days_count }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <table class="table is-striped is-hoverable is-fullwidth">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Temp</th>
+                        <th>Wind</th>
+                        <th>Visibility</th>
+                        <th>DewPnt</th>
+                        <th>SolarRad</th>
+                        <th>Rainfall</th>
+                        <th>Snowfall</th>
+                        <th>Seasons</th>
+                        <th>Holiday</th>
+                        <th>FuncDay</th>
+                        <th>Month</th>
+                        <th>Day</th>
+                        <th>DayofWk</th>
+                        <th>HoursIn</th>
+                        <th>HourCos</th>
+                        <th>BikeCount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in data %}
+                    <tr>
+                        <td>{{ row.id }}</td>
+                        <td>{{ row.temperature }}</td>
+                        <td>{{ row.windspeed }}</td>
+                        <td>{{ row.visibility }}</td>
+                        <td>{{ row.dewpointtemperature }}</td>
+                        <td>{{ row.solarradiation }}</td>
+                        <td>{{ row.rainfall }}</td>
+                        <td>{{ row.snowfall }}</td>
+                        <td>{{ row.seasons }}</td>
+                        <td>{{ row.holiday }}</td>
+                        <td>{{ row.functioningday }}</td>
+                        <td>{{ row.month }}</td>
+                        <td>{{ row.day }}</td>
+                        <td>{{ row.dayofweek }}</td>
+                        <td>{{ row.hoursin }}</td>
+                        <td>{{ row.hourcos }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
 </body>
+
 </html>

@@ -2,9 +2,10 @@ import pickle
 import os
 import logging
 
+from flask_migrate import Migrate
 from flask import Flask, request, jsonify, render_template
 from flask_sqlalchemy import SQLAlchemy
-
+from sqlalchemy import func
 
 # Configure logging
 logging.basicConfig(
@@ -25,11 +26,13 @@ MODEL_FILE = os.path.join(os.path.dirname(
     __file__), 'models/bike_sharing_model.pkl')
 logger.info(f'Loading model from {MODEL_FILE}')
 
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@db:5432/bikeshare'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres123@localhost:5432/bikeshare'
+# Database configuration
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///bikeshare.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
+
+Migrate(app, db)
 
 # logger.info(db.ping(reconnect=True))
 logger.info('Database connected')
@@ -44,6 +47,29 @@ def index():
         predict = predict_rented_bike_count(ride)[0].round(0)
         logger.info('Predicted count: %s', predict)
 
+        bikeshare = BikeShare(
+            temperature=ride['temperature'],
+            windspeed=ride['windspeed'],
+            visibility=ride['visibility'],
+            dewpointtemperature=ride['dewpointtemperature'],
+            solarradiation=ride['solarradiation'],
+            rainfall=ride['rainfall'],
+            snowfall=ride['snowfall'],
+            seasons=ride['seasons'],
+            holiday=ride['holiday'],
+            functioningday=ride['functioningday'],
+            month=ride['month'],
+            day=ride['day'],
+            dayofweek=ride['dayofweek'],
+            hoursin=ride['hoursin'],
+            hourcos=ride['hourcos'],
+            bikecount=predict
+        )
+
+        db.session.add(bikeshare)
+        db.session.commit()
+        logger.info('Bike share data saved to database')
+
         response = {
             'predicted_count': float(predict)
         }
@@ -54,7 +80,25 @@ def index():
 @app.route('/', methods=['GET'])
 def dashboard():
     result = BikeShare.query.all()
-    return render_template('dashboard.html', data=result)
+
+    # Calculate statistics
+    average_temperature = db.session.query(
+        func.avg(BikeShare.temperature)).scalar()
+    average_windspeed = db.session.query(
+        func.avg(BikeShare.windspeed)).scalar()
+    total_snowfall = db.session.query(func.sum(BikeShare.snowfall)).scalar()
+    # most_common_season = db.session.query(BikeShare.seasons, func.count(BikeShare.seasons)).group_by(
+    #     BikeShare.seasons).order_by(func.count(BikeShare.seasons).desc()).first()
+    avg_bike_count = db.session.query(func.avg(
+        BikeShare.bikecount)).scalar()
+
+    # Pass statistics to template
+    return render_template('dashboard.html', data=result,
+                           average_temperature=average_temperature,
+                           average_windspeed=average_windspeed,
+                           total_snowfall=total_snowfall,
+                           #    most_common_season=most_common_season[0] if most_common_season else 'N/A',
+                           average_bike_cunt=avg_bike_count)
 
 
 def predict_rented_bike_count(ride):
@@ -89,17 +133,14 @@ class BikeShare(db.Model):
     dayofweek = db.Column(db.Integer, nullable=False)
     hoursin = db.Column(db.Float, nullable=False)
     hourcos = db.Column(db.Float, nullable=False)
+    bikecount = db.Column(db.Integer, nullable=False)
 
     def __repr__(self):
         return f'<BikeShare {self.id}>'
 
 
-def create_database():
+if __name__ == "__main__":
     with app.app_context():
         db.create_all()
-        print("Database and tables created successfully!")
-
-
-if __name__ == "__main__":
-    create_database()
-    app.run()
+        logger.info("Database and tables created successfully!")
+    app.run(debug=True)
