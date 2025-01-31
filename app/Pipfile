@@ -17,6 +17,7 @@ dash-bootstrap-components = "1.7.1"
 psycopg2-binary="2.9.10"
 Flask-SQLAlchemy="3.1.1"
 flask-migrate = "*"
+gunicorn = "*"
 
 [dev-packages]
 

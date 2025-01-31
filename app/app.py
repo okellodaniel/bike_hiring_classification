@@ -88,8 +88,6 @@ def dashboard():
     average_windspeed = db.session.query(
         func.avg(BikeShare.windspeed)).scalar()
     total_snowfall = db.session.query(func.sum(BikeShare.snowfall)).scalar()
-    # most_common_season = db.session.query(BikeShare.seasons, func.count(BikeShare.seasons)).group_by(
-    #     BikeShare.seasons).order_by(func.count(BikeShare.seasons).desc()).first()
     avg_bike_count = db.session.query(func.avg(
         BikeShare.bikecount)).scalar()
 
@@ -98,7 +96,6 @@ def dashboard():
                            average_temperature=average_temperature,
                            average_windspeed=average_windspeed,
                            total_snowfall=total_snowfall,
-                           #    most_common_season=most_common_season[0] if most_common_season else 'N/A',
                            average_bike_count=avg_bike_count)
 
 

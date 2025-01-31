@@ -1,4 +1,4 @@
-FROM python:3.11-slim
+FROM python:3.12-slim
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
@@ -17,4 +17,4 @@ EXPOSE 5000
 
 LABEL authors="Daniel"
 
-CMD ["python","app.py"]
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]
