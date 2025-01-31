@@ -126,5 +126,8 @@ curl -X POST http://localhost:5000/ -H "Content-Type: application/json" -d "{
 ## Results
 The model achieved an R-squared value of 0.94, indicating a strong correlation between the predicted and actual bike demand.
 
-## Contributing
-Contributions are currently not welcome! But please fork the repository and submit a pull request for any improvements or bug fixes.
+## Areas of Improvement
+1. Normalizing the target variable to improve model performance.
+2. Incorporating additional features such as traffic data and events to enhance predictions.
+3. Implementing a more sophisticated time series model to capture temporal patterns.
+4. Optimizing the model for real-time predictions and scalability.
