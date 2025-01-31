@@ -5011,3 +5011,33 @@ FROM bikeshares]
 2025-01-31 06:37:22,017 - app - INFO - Starting app
 2025-01-31 06:37:22,019 - app - INFO - Loading model from D:\Machine Learning\seoul_bike_sharing_demand\app\models/bike_sharing_model.pkl
 2025-01-31 06:37:22,039 - app - INFO - Database connected
+2025-01-31 06:37:28,830 - __main__ - INFO - Starting app
+2025-01-31 06:37:28,831 - __main__ - INFO - Loading model from D:\Machine Learning\seoul_bike_sharing_demand\app\models/bike_sharing_model.pkl
+2025-01-31 06:37:28,846 - __main__ - INFO - Database connected
+2025-01-31 06:37:28,852 - __main__ - INFO - Database and tables created successfully!
+2025-01-31 06:37:28,880 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-01-31 06:37:28,880 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-01-31 06:37:28,881 - werkzeug - INFO -  * Restarting with stat
+2025-01-31 06:37:29,585 - __main__ - INFO - Starting app
+2025-01-31 06:37:29,585 - __main__ - INFO - Loading model from D:\Machine Learning\seoul_bike_sharing_demand\app\models/bike_sharing_model.pkl
+2025-01-31 06:37:29,601 - __main__ - INFO - Database connected
+2025-01-31 06:37:29,606 - __main__ - INFO - Database and tables created successfully!
+2025-01-31 06:37:29,631 - werkzeug - WARNING -  * Debugger is active!
+2025-01-31 06:37:29,636 - werkzeug - INFO -  * Debugger PIN: 829-881-471
+2025-01-31 06:37:31,903 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 06:37:31] "GET / HTTP/1.1" 200 -
+2025-01-31 06:37:32,157 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 06:37:32] "[33mGET /js/materialize.min.js HTTP/1.1[0m" 404 -
+2025-01-31 06:37:38,409 - __main__ - INFO - Ride data: {'temperature_c': 12.2, 'humidity': 14, 'wind_speed_ms': 1.6, 'visibility_10m': 1896, 'dew_point_temperature_c': -14.5, 'solar_radiation_mjm2': 2.75, 'rainfallmm': 0.0, 'snowfall_cm': 0.0, 'seasons': 'spring', 'holiday': 'no_holiday', 'functioning_day': 'yes', 'month': 3, 'day': 3, 'dayofweek': 5, 'hour_sin': -0.25881904510252035, 'hour_cos': -0.9659258262890684}
+2025-01-31 06:37:39,688 - __main__ - INFO - Loading model and data vectorizer
+2025-01-31 06:37:39,693 - __main__ - INFO - Predicted count: 403.0
+2025-01-31 06:37:39,700 - __main__ - INFO - Bike share data saved to database
+2025-01-31 06:37:39,701 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 06:37:39] "POST / HTTP/1.1" 200 -
+2025-01-31 06:37:43,963 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 06:37:43] "GET / HTTP/1.1" 200 -
+2025-01-31 06:37:44,369 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 06:37:44] "[33mGET /js/materialize.min.js HTTP/1.1[0m" 404 -
+2025-01-31 06:38:32,163 - __main__ - INFO - Ride data: {'temperature_c': 0.2, 'humidity': 14, 'wind_speed_ms': 1.6, 'visibility_10m': 196, 'dew_point_temperature_c': -14.5, 'solar_radiation_mjm2': 2.75, 'rainfallmm': 0.0, 'snowfall_cm': 0.0, 'seasons': 'winter', 'holiday': 'holiday', 'functioning_day': 'yes', 'month': 3, 'day': 3, 'dayofweek': 5, 'hour_sin': -0.25881904510252035, 'hour_cos': -0.9659258262890684}
+2025-01-31 06:38:32,191 - __main__ - INFO - Loading model and data vectorizer
+2025-01-31 06:38:32,195 - __main__ - INFO - Predicted count: 184.0
+2025-01-31 06:38:32,200 - __main__ - INFO - Bike share data saved to database
+2025-01-31 06:38:32,200 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 06:38:32] "POST / HTTP/1.1" 200 -
+2025-01-31 06:38:36,774 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 06:38:36] "GET / HTTP/1.1" 200 -
+2025-01-31 06:38:37,209 - werkzeug - INFO - 127.0.0.1 - - [31/Jan/2025 06:38:37] "[33mGET /js/materialize.min.js HTTP/1.1[0m" 404 -
