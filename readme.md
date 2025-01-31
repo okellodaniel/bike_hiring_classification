@@ -202,15 +202,43 @@ To set up the project locally, follow these steps:
 
 ## Running the Project
 ### Locally
-1. Ensure all dependencies are installed.
-2. Run the application: `python app.py`
-3. Access the web service at [`http://localhost:5000`](http://localhost:5000) to get predictions.
-4. Access the web dashboard at `http://localhost:5000/dashboard` to visualize the data.
+1. Ensure that pipenv installed, you follow instructions on installation [here](https://pipenv.pypa.io/en/latest/installation.html).
+2. Install the dependencies: `pipenv install`
+3. Activate the virtual environment: `pipenv shell`
+4. Navigate to the [app] directory (cd app) and run the following command to train the model: `python scripts/training_script.py`
+5. Start the Flask application: `python app.py`
+6. Access the web service at [`http://localhost:5000`](http://localhost:5000) to get predictions.
+7. Access the web dashboard at `http://localhost:5000/dashboard` to visualize the data.
+
+**Note**: Use the sample payload below to test the API using `curl`.
+```bash
+curl -X POST http://localhost:5000/ -H "Content-Type: application/json" -d "{
+  'temperature_c': 12.2,
+  'humidity': 14,
+  'wind_speed_ms': 1.6,
+  'visibility_10m': 1896,
+  'dew_point_temperature_c': -14.5,
+  'solar_radiation_mjm2': 2.75,
+  'rainfallmm': 0.0,
+  'snowfall_cm': 0.0,
+  'seasons': 'spring',
+  'holiday': 'no_holiday',
+  'functioning_day': 'yes',
+  'month': 3,
+  'day': 3,
+  'dayofweek': 5,
+  'hour_sin': -0.25881904510252035,
+  'hour_cos': -0.9659258262890684
+}"
+```
+
+_You can also use the [testing notebook](./app/notebooks/testing_notebook.ipynb) to test the web service locally._
 
 ### Using Docker
-1. Build the Docker image: `docker build -t bike-sharing-prediction .`
-2. Run the Docker container: `docker run -p 5000:5000 bike-sharing-prediction`
-3. Access the web service at [`http://localhost:5000`](http://localhost:5000).
+1. Navigate to the project directory: `cd bike_share_regression`
+2. Build the Docker image in the terminal: `docker build -t bike-sharing-prediction .`
+3. Run the Docker container: `docker run -p 5000:5000 bike-sharing-prediction`
+4. Access the web service at [`http://localhost:5000`](http://localhost:5000).
 
 ### Testing the Deployed Version
 1. Access the deployed version at [`https://bike-share-regression.fly.dev/`](`https://bike-share-regression.fly.dev/`) to get predictions.
